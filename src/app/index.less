@@ -1,0 +1,222 @@
+
+  .wrapper {
+    position: relative;
+    width: 1030px; margin: auto; padding: 30px 0;
+    background-color: #fff; 
+  }
+  
+  header {
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+  }
+  
+  header .head-img{
+    width: inherit; height: 100%; 
+    margin-left: 50%;
+    transform: translateX(-900px);
+  }
+  
+  .comics-intro{
+    box-sizing: border-box;
+    position: absolute; top: -200px; right: 10px;
+    min-width: 260px; padding: 20px;
+    text-align: right;color: #fff;
+    background-color: rgba(30,30,34,.8);
+  }
+  
+  .comics-name{
+    font-size: 32px;
+  }
+  
+  .comics-author, .comics-tags{
+    font-size: 14px;
+    line-height: 30px;
+  }
+  
+  img{
+    display: block; width: 100%;
+  }
+
+  .comics-image-disabled {
+    height: 50px;
+  }
+
+  .comics-list{
+    overflow: hidden; padding: 0;
+  }
+  
+  .list-item {
+    float: left; overflow: hidden;
+    width: 200px; height: 30px;
+    margin-left: 20px; margin-bottom: 15px; padding: 0 15px;
+    border: 1px solid #ccc;
+    line-height: 30px; cursor: pointer; white-space: nowrap; text-overflow: ellipsis;
+  }
+  .number { font-size: 14px; color: #666; }
+  .name { color: #333; }
+  
+  .comics-display-box{
+    display: none; overflow: scroll;
+    position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 10;
+    background-color: rgba(0,0,0,.6);
+  }
+  .comics-display-box.showed{
+    display: block;
+  }
+  
+  .comics-db-header{
+    padding: 20px 0;
+    font-size: 28px; text-align: center; color: #fff;
+  }
+  
+  #comics-content{
+    overflow: hidden;
+    width: 900px; margin: 0 auto 20px; border-radius: 6px;
+    background-color: #fff;
+  }
+  
+  .comics-db-footer{
+    width: 100%; 
+    background-color: rgba(255, 255, 255, .6)
+  }
+  
+  .comics-toolbar{
+    width: 900px; margin: 0 auto;
+    background-color: #fff; text-align: center;
+  }
+  
+  .comics-toolbar-item{
+    display: inline-block;
+    width: 100px; height: 50px; 
+    line-height: 50px; cursor: pointer;
+  }
+  
+  .comics-toolbar-item.hidden{
+    display: none;
+  }
+  
+  #comics-error-toast{
+    display: none; position: relative;
+    box-sizing: border-box;
+    position: fixed; top: 50%; left: 50%;  z-index: 99;
+    min-width: 300px; max-width: 500px; padding: 20px; transform: translateX(-50%) translateY(-50%); border-radius: 10px;
+    background-color: #f5f5f5; text-align: center; box-shadow: 0 0 10px #333;
+  }
+  
+  #comics-error-toast.showed{
+    display: block;
+  }
+  
+  #comics-et-info {
+    font-size: 18px; 
+  }
+  
+  #comics-et-btn{
+    display: inline-block; 
+    padding: 3px 12px; margin-top: 10px; border: 1px solid #f56c6c; border-radius: 4px;
+    font-size: 14px; cursor: pointer;
+  }
+  
+  #comics-et-duration{
+    margin-top: 10px;
+    font-size: 12px; color: #999;
+  }
+  
+  .comics-close-btn{
+    position: absolute; top: 5px; right: 0; z-index: 10;
+    padding: 5px 15px; 
+    cursor: pointer;
+  }
+  
+  .comics-nav{
+    box-sizing: border-box; overflow: hidden;
+    width: 988px; margin: 0 20px; border: 1px solid #d8d8d8;
+    background: #f5f5f5;
+  }
+  
+  .comics-nav-item{
+    display: block; float: left;
+    margin: 10px 0; margin-right: -1px; padding: 0 10px; border-left: 1px solid #fe7357;
+    font-size: 14px; line-height: 15px; color: #666; text-decoration: none;
+  }
+  
+  .comics-nav-item.active{
+    color: #d62323;
+  }
+  
+  .comics-nav-item:first-child{
+    border-width: 0;
+  }
+  
+  .comics-backtotop{
+    /* display: none; */
+    position: fixed; bottom: 70px; left: 50%; transform: translateX(480px);
+    width: 48px; height: 48px; border-radius: 50%;
+    background-color: #fff; line-height: 48px; text-align: center;
+    font-size: 16px; cursor: pointer; opacity: 0; pointer-events: none;
+    transition: all .3s ease-out; 
+  }
+  
+  .comics-backtotop.showed{
+    /* display: block;  */
+    opacity: 1; pointer-events: auto;
+  }
+  
+  
+/* loading 动画 start */
+    .comics-loading-box{
+      display: none;
+      position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 100;
+    }
+    .loading-logo { 
+      position: fixed; top: 50%; left: 50%; z-index: 100;
+      transform: translateX(-50%) translateY(-50%);
+      text-align: center;
+    }
+    .loading-logo.showed{
+      display: block;
+    }
+    .loading-logo ul{ height: 18px;}
+    .loading-logo ul > li{ position: relative; display: inline-block; width: 18px; height: 18px; line-height: 18px; text-align: center; }
+    .loading-logo ul > li a { position: absolute; display: inline-block; border-radius: 50%; background-color: rgba(0, 0, 0, .7); }
+    .loading-logo ul > li.first a{
+        animation: myfirst 1.2s linear 0s infinite alternate;
+        -moz-animation: myfirst 1.2s linear 0s infinite alternate; /* Firefox: */
+        -webkit-animation: myfirst 1.2s linear 0s infinite alternate;
+    }
+  
+    .loading-logo ul > li.second a{
+        animation: myfirst 1.2s linear .3s infinite alternate;
+        -moz-animation: myfirst 1.2s linear .3s infinite alternate; /* Firefox: */
+        -webkit-animation: myfirst 1.2s linear .3s infinite alternate;
+    }
+  
+    .loading-logo ul > li.third a{
+        animation: myfirst 1.2s linear 0.6s infinite alternate;
+        -moz-animation: myfirst 1.2s linear 0.6s infinite alternate; /* Firefox: */
+        -webkit-animation: myfirst 1.2s linear 0.6s infinite alternate;
+    }
+  
+    @keyframes myfirst
+    {
+        0%{ top: 9px; left: 9px; width: 0px; height: 0px; }
+        50%{ top: 0px; left: 0px; width: 18px; height: 18px; }
+        100%{ top: 9px; left: 9px; width: 0px; height: 0px; }
+    }
+  
+    @-moz-keyframes myfirst /* Firefox */
+    {
+        0%{ top: 9px; left: 9px; width: 0px; height: 0px; }
+        50%{ top: 0px; left: 0px; width: 18px; height: 18px; }
+        100%{ top: 9px; left: 9px; width: 0px; height: 0px; }
+    }
+  
+    @-webkit-keyframes myfirst /* Safari 和 Chrome */
+    {
+        0%{ top: 9px; left: 9px; width: 0px; height: 0px; }
+        50%{ top: 0px; left: 0px; width: 18px; height: 18px; }
+        100%{ top: 9px; left: 9px; width: 0px; height: 0px; }
+    }
+/* loading 动画 end */
+  
